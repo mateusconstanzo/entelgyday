@@ -1,6 +1,7 @@
 package com.example.entity;
 
 import org.eclipse.persistence.annotations.Multitenant;
+import org.eclipse.persistence.annotations.MultitenantType;
 import org.eclipse.persistence.annotations.TenantDiscriminatorColumn;
 
 import javax.persistence.*;
@@ -8,7 +9,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "T_USER")
-@Multitenant
+@Multitenant(MultitenantType.SINGLE_TABLE)
 @TenantDiscriminatorColumn(name = "C_TENANT_ID")
 public class User implements Serializable {
 

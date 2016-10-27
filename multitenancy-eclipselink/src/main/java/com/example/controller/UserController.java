@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import com.example.entity.User;
+import com.example.factory.UserFactory;
 import com.example.factory.impl.UserFactoryImpl;
 import com.example.service.UserService;
 import io.swagger.annotations.Api;
@@ -21,7 +22,7 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    private UserFactoryImpl userFactory;
+    private UserFactory userFactory;
 
     @ApiOperation(value = "Serviço para recuperar usuários", httpMethod = "GET", response = User.class)
     @RequestMapping(method = RequestMethod.GET)

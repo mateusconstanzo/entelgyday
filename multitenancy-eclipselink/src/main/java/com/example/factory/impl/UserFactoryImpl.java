@@ -1,6 +1,7 @@
 package com.example.factory.impl;
 
 import com.example.factory.UserFactory;
+import com.example.multitenancy.TenantEnum;
 import com.example.multitenancy.TenantHolder;
 import com.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,10 @@ public class UserFactoryImpl implements UserFactory {
         final String tenantId = TenantHolder.getTenant();
 
         UserService service = map.get(tenantId);
+
+        if (service == null) {
+            service = map.get(TenantEnum.DEFAULT.getValue());
+        }
 
         return service;
     }

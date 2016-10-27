@@ -9,11 +9,6 @@ public class TenantHolder {
     }
 
     public static String getTenant() {
-
-        if (tenantHolder.get() == null)  {
-            return TenantEnum.DEFAULT.getValue();
-        }
-
         return tenantHolder.get();
     }
 
